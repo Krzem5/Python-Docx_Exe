@@ -5,7 +5,7 @@ import subprocess
 
 
 if (ntpath.exists("build")):
-	os.system("rmdir /s /q .\\build")
+	os.system("rmdir /s /q build")
 os.mkdir("build")
 ti,os.environ["INCLUDE"]=os.environ["INCLUDE"],".;"+os.environ["INCLUDE"]
 b_fp=os.getcwd()
