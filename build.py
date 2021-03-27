@@ -13,7 +13,7 @@ os.chdir("build")
 with open("../rsrc/payload.docx","rb") as f:
 	dt=f.read()
 with open("payload.h","w") as f:
-	f.write(f"#ifndef __PAYLOAD_H__\n#define __PAYLOAD_H__\n#include <stdint.h>\n\n\n\n#define PAYLOAD_SIZE {len(dt)}\n\n\n\nstatic const uint8_t PAYLOAD[]={{\n")
+	f.write(f"#ifndef __PAYLOAD_H__\n#define __PAYLOAD_H__ 1\n\n\n\n#define PAYLOAD_SIZE {len(dt)}\n\n\n\nstatic const unsigned char PAYLOAD[]={{\n")
 	i=0
 	while (i<len(dt)):
 		f.write(f"\t{', '.join(['0x'+hex(e)[2:].rjust(2,'0') for e in dt[i:i+6]])}{(',' if i+6<len(dt) else '')}\n")
